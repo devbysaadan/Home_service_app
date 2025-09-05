@@ -7,7 +7,6 @@ class LoginOldUsersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -21,23 +20,72 @@ class LoginOldUsersScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 26),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "Welcome Back!",
-              style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(top: 80),
+              child: const Text(
+                "Welcome Back!",
+                style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: CustomButton(
+                text: 'CONTINUE WITH FACEBOOK ',
+                iconPath: 'assets/images/facebook.png',
+                height: 63,
+                backgroundColor: Color(0xff7583CA),
+                onPressed: () {},
+              ),
+            ),
+
+            const SizedBox(height: 20),
+            CustomButton(
+              text: 'CONTINUE WITH GOOGLE',
+              iconPath: 'assets/images/google.png',
+              height: 63,
+              textColor: Colors.black,
+              backgroundColor: Colors.white,
+              onPressed: () {},
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 70),
+              child: const Text(
+                "OR CONTINUE WITH PHONE NUMBER",
+                style: TextStyle(color: Color(0xffA1A4B2), fontSize: 15),
+              ),
             ),
             const SizedBox(height: 30),
-           CustomButton(text: 'CONTINUE WITH FACEBOOK ', iconPath: 'assets/images/facebook.png',height: 63, backgroundColor: Color(0xff7583CA), onPressed: (){}),
-
-            const SizedBox(height: 10),
-            CustomButton(text: 'CONTINUE WITH GOOGLE', iconPath: 'assets/images/google.png',height: 63,textColor: Colors.black, backgroundColor: Colors.white, onPressed: (){}),
-            const SizedBox(height: 20),
-            const Text("OR CONTINUE WITH PHONE NUMBER"),
-            const SizedBox(height: 10),
             CustomPhoneField(),
-            const SizedBox(height: 20),
-           CustomButton(text: 'LOG IN', height: 63, backgroundColor: Colors.black, onPressed: (){}),
+            const SizedBox(height: 30),
+            CustomButton(
+              text: 'LOG IN',
+              height: 63,
+              backgroundColor: Colors.black,
+              onPressed: () {},
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                  letterSpacing: 1,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('DON’T HAVE AN ACCOUNT?',style: TextStyle(color: Color(0xffA1A4B2),fontSize: 16),),
+                  TextButton(onPressed: (){}, child: Text('SIGN UP',style: TextStyle(color: Colors.blue,fontSize: 16),)),
+                ],
+              ),
+            )
           ],
         ),
       ),
