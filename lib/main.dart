@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Home Service',
       theme: ThemeData(
+        fontFamily: 'Inter'
       ),
       home: const SplashScreen(),
     );
