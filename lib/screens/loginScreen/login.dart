@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:home_service_app/screens/signupScreen/signup.dart';
 import 'package:home_service_app/widgets/custom_button.dart';
 import 'package:home_service_app/widgets/custom_phone_input_field.dart';
 
-class LoginOldUsersScreen extends StatelessWidget {
-  const LoginOldUsersScreen({super.key});
+class Login extends StatelessWidget {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,11 @@ class LoginOldUsersScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('DON’T HAVE AN ACCOUNT?',style: TextStyle(color: Color(0xffA1A4B2),fontSize: 16),),
-                  TextButton(onPressed: (){}, child: Text('SIGN UP',style: TextStyle(color: Colors.blue,fontSize: 16),)),
+                  TextButton(onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Signup(),));
+                  }, child: Text('SIGN UP',style: TextStyle(color: Colors.blue,fontSize: 16),)),
                 ],
               ),
             )
