@@ -63,18 +63,29 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/images/Renovation.png',
                     label: "Renovation",
                   ),
-                  _CategoryTile(imagePath: 'assets/images/Handyman 2.png', label: "Handyman"),
+                  _CategoryTile(
+                    imagePath: 'assets/images/Handyman 2.png',
+                    label: "Handyman",
+                  ),
                   _CategoryTile(
                     imagePath: 'assets/images/Moving 1.png',
                     label: "Home shifting",
                   ),
-                  _CategoryTile(imagePath: 'assets/images/Gardening 1.png', label: "Gardening"),
-                  _CategoryTile(imagePath: 'assets/images/Declutter 2.png', label: "Declutter"),
-                  _CategoryTile(imagePath: 'assets/images/surface1.png', label: "Painting"),
+                  _CategoryTile(
+                    imagePath: 'assets/images/Gardening 1.png',
+                    label: "Gardening",
+                  ),
+                  _CategoryTile(
+                    imagePath: 'assets/images/Declutter 2.png',
+                    label: "Declutter",
+                  ),
+                  _CategoryTile(
+                    imagePath: 'assets/images/surface1.png',
+                    label: "Painting",
+                  ),
                 ],
               ),
               Divider(color: Color(0xffF4F4F4), thickness: 12),
-
 
               const SectionTitle(title: "Popular Services"),
               SizedBox(
@@ -150,17 +161,14 @@ class Home extends StatelessWidget {
 
               const SizedBox(height: 20),
               Container(
+                height: 80,
                 width: double.infinity,
                 color: Colors.black,
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: const Center(
                   child: Text(
                     "Best-in Class Safety Measures",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 27),
                   ),
                 ),
               ),
@@ -184,6 +192,33 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(height: 30,),
+                    Text(
+                      '     HASSLE FREE \n QUALITY SERVICE',
+                      style: TextStyle(
+                        color: Colors.grey.shade300,
+                        fontSize: 18 ,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 30,),
+                    Text(
+                      ' V 1.0',
+                      style: TextStyle(
+                        color: Colors.grey.shade300,
+                        fontSize: 18 ,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Image.asset('assets/images/menu.png',fit: BoxFit.fill,)
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -196,19 +231,13 @@ class _CategoryTile extends StatelessWidget {
   final String imagePath;
   final String label;
 
-  const _CategoryTile({
-    required this.imagePath,
-    required this.label,
-  });
+  const _CategoryTile({required this.imagePath, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey.shade300,
-          width: 0.5,
-        ),
+        border: Border.all(color: Colors.grey.shade300, width: 0.5),
         color: Colors.white,
       ),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
@@ -312,15 +341,17 @@ class _InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+
       child: ListTile(
         leading: Image.asset(imagePath),
         title: Text(
           title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
-        subtitle: Text(subtitle, style: const TextStyle(fontSize: 12)),
+        subtitle: Text(subtitle, style: const TextStyle(fontSize: 14)),
       ),
     );
   }
@@ -340,16 +371,12 @@ class _SafetyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Color(0xffF7FBFF),
       margin: const EdgeInsets.only(bottom: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            imagePath,
-            height: 80,
-            width: 79,
-            fit: BoxFit.cover,
-          ),
+          Image.asset(imagePath, height: 80, width: 79, fit: BoxFit.cover),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
