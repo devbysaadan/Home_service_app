@@ -53,30 +53,25 @@ class Home extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
               Divider(color: Color(0xffF4F4F4), thickness: 12),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    _CategoryTile(
-                      imagePath: 'assets/images/Renovation.png',
-                      label: "Renovation",
-                    ),
-                    _CategoryTile(imagePath: 'assets/images/Handyman 2.png', label: "Handyman"),
-                    _CategoryTile(
-                      imagePath: 'assets/images/Moving 1.png',
-                      label: "Home shifting",
-                    ),
-                    _CategoryTile(imagePath: 'assets/images/Gardening 1.png', label: "Gardening"),
-                    _CategoryTile(imagePath: 'assets/images/Declutter 2.png', label: "Declutter"),
-                    _CategoryTile(imagePath: 'assets/images/surface1.png', label: "Painting"),
-                  ],
-                ),
+              GridView.count(
+                childAspectRatio: 1,
+                crossAxisCount: 3,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  _CategoryTile(
+                    imagePath: 'assets/images/Renovation.png',
+                    label: "Renovation",
+                  ),
+                  _CategoryTile(imagePath: 'assets/images/Handyman 2.png', label: "Handyman"),
+                  _CategoryTile(
+                    imagePath: 'assets/images/Moving 1.png',
+                    label: "Home shifting",
+                  ),
+                  _CategoryTile(imagePath: 'assets/images/Gardening 1.png', label: "Gardening"),
+                  _CategoryTile(imagePath: 'assets/images/Declutter 2.png', label: "Declutter"),
+                  _CategoryTile(imagePath: 'assets/images/surface1.png', label: "Painting"),
+                ],
               ),
               Divider(color: Color(0xffF4F4F4), thickness: 12),
 
@@ -134,18 +129,18 @@ class Home extends StatelessWidget {
                 child: Column(
                   children: const [
                     _InfoCard(
-                      icon: Icons.verified,
+                      imagePath: 'assets/images/quality.png',
                       title: "Quality Assurance",
                       subtitle: "Your satisfaction is guaranteed",
                     ),
                     _InfoCard(
-                      icon: Icons.attach_money,
+                      imagePath: 'assets/images/fixed.png',
                       title: "Fixed Prices",
                       subtitle:
                           "No hidden costs, all the prices are known and fixed before booking",
                     ),
                     _InfoCard(
-                      icon: Icons.access_time,
+                      imagePath: 'assets/images/hassel.png',
                       title: "Hassle free",
                       subtitle: "Convenient, time saving and secure",
                     ),
@@ -153,7 +148,6 @@ class Home extends StatelessWidget {
                 ),
               ),
 
-              // Safety Measures Section
               const SizedBox(height: 20),
               Container(
                 width: double.infinity,
@@ -170,18 +164,19 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   children: const [
                     _SafetyCard(
-                      icon: Icons.health_and_safety,
+                      imagePath: 'assets/images/mask.png',
                       title: "Usage of masks, gloves & sanitisers",
                       description:
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget in condimentum porttitor nec tristique pellentesque ipsum nunc.",
                     ),
                     _SafetyCard(
-                      icon: Icons.social_distance,
+                      imagePath: 'assets/images/low.png',
                       title: "Low-contact Service Experience",
                       description:
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget in condimentum porttitor nec tristique pellentesque ipsum nunc.",
@@ -212,28 +207,32 @@ class _CategoryTile extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey.shade300,
-          width: 0.2,
+          width: 0.5,
         ),
         color: Colors.white,
       ),
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 30,
+            radius: 24,
             child: Image.asset(
               imagePath,
-              width: 50,
-              height: 50,
-              fit: BoxFit.fill,
+              width: 40,
+              height: 40,
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 6),
           Text(
             label,
             style: const TextStyle(fontSize: 12),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
@@ -300,12 +299,12 @@ class _ServiceCard extends StatelessWidget {
 }
 
 class _InfoCard extends StatelessWidget {
-  final IconData icon;
+  final String imagePath;
   final String title;
   final String subtitle;
 
   const _InfoCard({
-    required this.icon,
+    required this.imagePath,
     required this.title,
     required this.subtitle,
   });
@@ -316,7 +315,7 @@ class _InfoCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
-        leading: Icon(icon, color: Colors.orange, size: 28),
+        leading: Image.asset(imagePath),
         title: Text(
           title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -328,12 +327,12 @@ class _InfoCard extends StatelessWidget {
 }
 
 class _SafetyCard extends StatelessWidget {
-  final IconData icon;
+  final String imagePath;
   final String title;
   final String description;
 
   const _SafetyCard({
-    required this.icon,
+    required this.imagePath,
     required this.title,
     required this.description,
   });
@@ -345,7 +344,12 @@ class _SafetyCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 28, color: Colors.black),
+          Image.asset(
+            imagePath,
+            height: 80,
+            width: 79,
+            fit: BoxFit.cover,
+          ),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -354,7 +358,7 @@ class _SafetyCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
