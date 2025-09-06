@@ -39,7 +39,7 @@ class Signup extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [

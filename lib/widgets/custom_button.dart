@@ -39,8 +39,9 @@ class CustomButton extends StatelessWidget {
         ),
         child:hasIcon
             ? Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(width: 50,),
             Image.asset(
               iconPath!,
               height: 24,
@@ -49,7 +50,7 @@ class CustomButton extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               text,
-              style: TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(color: textColor, fontSize: 17, fontWeight: FontWeight.w400),
             ),
           ],
         )
